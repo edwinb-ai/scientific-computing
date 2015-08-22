@@ -1,10 +1,3 @@
-/*
- *      Newton - Raphson method for the equation
- *      f(x) = e^x + x^3 - 5
- *
-*/
-
-
 #include <iostream>
 #include <cmath>
 
