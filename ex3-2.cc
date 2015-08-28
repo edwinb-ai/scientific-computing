@@ -1,35 +1,32 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
+#include <string>
 
 int main()
 {
-  std::ifstream read_file("x_and_y.dat");
+    std::ifstream read_file("x_and_y.dat");
 
-  if (!read_file.is_open())
+    if (!read_file.is_open())
     {
-      return 1;
+        return 1;
     }
 
-  int number_of_rows = 0;
+    int number_of_rows = 0;
+    std::string line;
+    while (!read_file.eof())
+    {
+        std::getline(read_file, line);
+        std::stringstream is(line);
+        int n_col;
+        while (is >> n_col)
+            read_file >> n_col;
+        number_of_rows++;
+    }
 
-  while (!read_file.eof())
-  {
-    double dummy1, dummy2, dummy3, dummy4;
-    read_file >> dummy1 >> dummy2;
-    
-    if (!read_file.fail())
-      {
-	std::cout << "Reached endline character." << std::endl;
-	break;
-      }
-    read_file >> dummy3 >> dummy4;
-    number_of_rows++;
-    
-  }
+    std::cout << "Number of rows = " << number_of_rows << "\n";
 
-  std::cout << "Number of rows = " << number_of_rows << "\n";
+    read_file.close();
 
-  read_file.close();
-
-  return 0;
+    return 0;
 }
