@@ -6,7 +6,7 @@ int main(int argc, char const *argv[])
   // Read command line arguments for rows and columns
   int rows = atoi(argv[1]);
   int cols = atoi(argv[2]);
-  size_t matrix_size = rows * cols;
+  size_t matrix_size = rows * cols; // Calculate matrix size
   
   /* Dynamic memory allocation for matrices  */
   // Allocation for A
@@ -108,5 +108,6 @@ int main(int argc, char const *argv[])
       delete [] C[i];
 
     delete[] C;
+    
     return 0;
 }
