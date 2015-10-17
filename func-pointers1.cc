@@ -24,3 +24,4 @@ double myOtherFunction(double x)
 {
     return x*x*x;
 }
+
