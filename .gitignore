@@ -3,3 +3,4 @@
 crout-test.cc
 lu-crout.cc
 infile*
+*?*.swp
