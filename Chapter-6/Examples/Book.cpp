@@ -21,7 +21,7 @@ Book::Book(const Book& otherBook)
 }
 
 // Specialised constructor
-Book::Booh(std::string bookTitle)
+Book::Book(std::string bookTitle)
 {
   title = bookTitle;
 }
