@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  clang
  *
- *         Author:  Edwin Bedolla (lorenz_attractor), developedwin@gmail.com
+ *         Author:  Edwin Bedolla (lorenz_attractor), developeredwin@gmail.com
  *   Organization:  
  *
  * =====================================================================================
