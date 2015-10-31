@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ExampleClassg.hpp"
+#include "ExampleClass.hpp"
 
 int main()
 {
