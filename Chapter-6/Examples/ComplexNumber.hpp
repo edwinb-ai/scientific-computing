@@ -27,10 +27,14 @@ public:
 				   const ComplexNumber& z);
   friend double GetRealPart(const ComplexNumber& z);
   friend double GetImaginaryPart(const ComplexNumber& z);
-  //friend ComplexNumber** AllocateMatrixMemory(int n);
 };
 
-// Complex matrix class
+/* 
+ *
+ *
+ * ==== Complex matrix class ====
+ *
+ */
 class ComplexMatrix
 {
 	private:

@@ -251,3 +251,12 @@ std::ostream& operator<< (std::ostream& output,	const ComplexMatrix& A)
 	output << "\n";
 }
 
+/*
+ *
+ *
+ * 	===== TODO:
+ * 				* CalculateDeterminant
+ * 				* CalculateInverse
+ * 				* CalculatePower
+ * 				* MatrixMultiplication
+ */
