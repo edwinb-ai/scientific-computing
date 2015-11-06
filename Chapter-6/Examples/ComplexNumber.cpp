@@ -257,6 +257,52 @@ std::ostream& operator<< (std::ostream& output,	const ComplexMatrix& A)
  * 	===== TODO:
  * 				* CalculateDeterminant
  * 				* CalculateInverse
- * 				* CalculatePower
  * 				* MatrixMultiplication
+ * 				* CalculatePower
  */
+
+namespace MatrixSolve 
+{
+	// Crout decomposition function
+	void CroutDecomposition(ComplexMatrix& A, int n)
+	{
+		ComplexNumber sum = 0;
+
+		for (int j = 1; j < n; j++)
+		{
+			A(0, j) /= A(0, 0);
+		}
+
+		for (int j = 1; j < n-1; j++)
+		{
+			for (int i = j; i < n; i++)
+			{
+				sum = 0;
+				for (int k = 0; k < j; k++)
+				{
+					sum += A(i, k) * A(k, j);
+				}
+				A(i, j) -= sum;
+			}
+
+			for (int k = j+1; k < n; k++)
+			{
+				sum = 0;
+				for (int i = 0; i < j; i++)
+				{
+					sum += A(j, i) * A(i, k);
+				}
+				A(j, k) = (A(j, k) - sum) / A(j, j);
+			}
+		}
+		sum = 0;
+		for (int k = 0; k < n-1; k++)
+		{
+			sum += A(n-1, k) * A(k, n-1);
+		}
+		A(n-1, n-1) -= sum
+	}
+
+	// Solve system function
+	void SolveSystem(ComplexMatrix& A, )
+} // namespace MatrixSolve

@@ -47,7 +47,7 @@ class ComplexMatrix
 		int GetNumberOfRows() const;
 		int GetNumberOfCols() const;
 		double CalculateDeterminant() const;
-		double CalculateInverse() const;
+		ComplexMatrix CalculateInverse() const;
 		ComplexMatrix MatrixMultiplication(const ComplexMatrix& A, 
 				const ComplexMatrix& B);
 		ComplexMatrix CalculatePower(double n) const;
