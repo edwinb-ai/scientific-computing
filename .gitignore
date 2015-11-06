@@ -5,3 +5,5 @@ lu-crout.cc
 infile*
 *?*.swp
 Makefile
+.idea
+CMakeLists.txt
