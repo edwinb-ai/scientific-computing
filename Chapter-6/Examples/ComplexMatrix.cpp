@@ -1,22 +1,5 @@
-/*
- * =====================================================================================
- *
- *       Filename:  ComplexMatrix.cpp
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  11/05/2015 09:14:02 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Edwin Bedolla (lorenz_attractor), developedwin@gmail.com
- *   Organization:  
- *
- * =====================================================================================
- */
-#include "ComplexNumber.hpp"
-
+#include "ComplexNumber.h"
+#include "ComplexMatrix.h"
 
 ComplexMatrix::ComplexMatrix(const ComplexMatrix& A)
 {
@@ -102,7 +85,7 @@ std::ostream& operator<< (std::ostream& output,	const ComplexMatrix& A)
 		for (int j = 0; j < A.mNumCols; j++)
 		{
 			output << A.mMemory[i][j] << ", ";
-		}	
+		}
 		output << "\t" << "\n";
 	}
 	output << "\n";
@@ -113,6 +96,7 @@ std::ostream& operator<< (std::ostream& output,	const ComplexMatrix& A)
  *
  * 	===== TODO:
  * 				* CalculateDeterminant
+ * 				* Matrix Operators
  * 				* CalculateInverse
  * 				* MatrixMultiplication
  * 				* CalculatePower
