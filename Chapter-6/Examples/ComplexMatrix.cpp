@@ -1,5 +1,7 @@
 #include "ComplexNumber.h"
 #include "ComplexMatrix.h"
+#include <cassert>
+#include <mach/task.h>
 
 ComplexMatrix::ComplexMatrix(const ComplexMatrix& A)
 {
@@ -88,17 +90,131 @@ std::ostream& operator<< (std::ostream& output,	const ComplexMatrix& A)
 		}
 		output << "\t" << "\n";
 	}
-	output << "\n";
+
+	return output;
 }
 
-/*
- *
- *
- * 	===== TODO:
- * 				* CalculateDeterminant
- * 				* Matrix Operators
- * 				* CalculateInverse
- * 				* MatrixMultiplication
- * 				* CalculatePower
- */
+bool ComplexMatrix::IsSquare() const
+{
+    return mNumCols == mNumRows;
+}
 
+// Matrix multiplication definition
+ComplexMatrix operator*(const ComplexMatrix &A, const ComplexMatrix& B)
+{
+    assert(A.IsSquare());
+
+    int numRows = A.GetNumberOfRows();
+    int numCols = A.GetNumberOfCols();
+    ComplexMatrix C(numRows, numCols);
+
+    for (int i  = 0; i < numRows; i++)
+    {
+        for (int j = 0; j < numRows; j++)
+        {
+            for (int k = 0; k < numRows; k++)
+            {
+                C.mMemory[i][j] = C.mMemory[i][j] + A.mMemory[i][k] * B.mMemory[k][j];
+            }
+        }
+    }
+
+    return C;
+}
+
+// Calculate power of matrix
+ComplexMatrix CalculatePower(const ComplexMatrix &A, int n)
+{
+    assert(n >= 0);
+
+    ComplexMatrix B(A.mNumRows, A.mNumCols);
+
+    if (n == 0)
+    {
+        for (int i = 0; i < A.mNumRows; i++)
+        {
+            for (int j = 0; j < A.mNumCols; j++)
+            {
+                B.mMemory[i][j] = A.mMemory[i][j].CalculatePower(0);
+            }
+        }
+
+        return B;
+    }
+
+    else if (n == 1)
+    {
+        return A;
+    }
+
+    else if (n % 2 == 0)
+        // is even
+    {
+        return CalculatePower(A * A, n / 2);
+    }
+
+    else if (n % 2 != 0)
+        // is odd
+    {
+        return A * CalculatePower(A * A, (n - 1) / 2);
+    }
+}
+
+// Unary +
+ComplexMatrix ComplexMatrix::operator+() const
+{
+    ComplexMatrix mat(mNumRows, mNumCols);
+    for (int i = 0; i < mNumRows; i++)
+    {
+        for (int j = 0; j < mNumCols; j++)
+        {
+            mat(i, j) = mMemory[i][j];
+        }
+    }
+
+    return mat;
+}
+
+// Unary -
+ComplexMatrix ComplexMatrix::operator-() const
+{
+    ComplexMatrix mat(mNumRows, mNumCols);
+    for (int i = 0; i < mNumRows; ++i) {
+        for (int j = 0; j < mNumCols; ++j) {
+            mat(i, j) = -mMemory[i][j];
+        }
+    }
+
+    return mat;
+}
+
+// Binary +
+ComplexMatrix ComplexMatrix::operator+(const ComplexMatrix &A) const
+{
+    assert(mNumRows == A.mNumRows);
+    assert(mNumCols == A.mNumCols);
+    ComplexMatrix mat(mNumRows, mNumCols);
+    for (int i = 0; i < mNumRows; ++i)
+    {
+        for (int j = 0; j < mNumCols; ++j)
+        {
+            mat(i, j) = mMemory[i][j] + A.mMemory[i][j];
+        }
+    }
+
+    return mat;
+}
+
+ComplexMatrix ComplexMatrix::operator-(const ComplexMatrix &A) const
+{
+    assert(mNumRows == A.mNumRows);
+    assert(mNumCols == A.mNumCols);
+    ComplexMatrix mat(mNumRows, mNumCols);
+    for (int i = 0; i < mNumRows; ++i) {
+        for (int j = 0; j < mNumCols; ++j) {
+            mat(i, j) = mMemory[i][j] - A.mMemory[i][j];
+        }
+    }
+
+    return mat;
+}

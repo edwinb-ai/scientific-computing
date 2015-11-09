@@ -113,6 +113,8 @@ std::ostream& operator<< (std::ostream& output,	const ComplexNumber& z)
 	{
 		output << "- " << -z.mImaginaryPart << "i)";
 	}
+
+  return output;
 }
 
 // Method to calculate conjugate

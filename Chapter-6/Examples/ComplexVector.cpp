@@ -145,7 +145,8 @@ std::ostream &operator<<(std::ostream &output, const ComplexVector &v) {
 	output << "\n";
 
 	for (int i = 0; i < v.mSize; ++i) {
-		output << v.mMemory[i] << ", ";
+		output << v.mMemory[i] << "\n";
 	}
-	output << "\n";
+
+	return output;
 }
