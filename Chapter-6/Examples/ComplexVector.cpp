@@ -124,7 +124,7 @@ ComplexVector ComplexVector::operator-(const ComplexVector &v) const
 }
 
 
-ComplexVector ComplexVector::operator*(ComplexNumber a) const
+ComplexVector ComplexVector::operator*(ComplexNumber &a) const
 {
 	ComplexVector v(mSize);
 	for (int i = 0; i < mSize; ++i)

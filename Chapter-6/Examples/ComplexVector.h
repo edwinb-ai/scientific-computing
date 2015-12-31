@@ -20,7 +20,7 @@ class ComplexVector
 		ComplexVector operator+ (const ComplexVector& v) const;
 		ComplexVector operator- (const ComplexVector& v) const;
 		// Scalar multiplication
-		ComplexVector operator*(ComplexNumber a) const;
+		ComplexVector operator*(ComplexNumber &a) const;
 		friend std::ostream& operator<< (std::ostream& output,
 										 const ComplexVector& v);
 		friend int Length (const ComplexVector& v);

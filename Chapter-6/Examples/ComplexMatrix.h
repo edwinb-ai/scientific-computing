@@ -15,6 +15,7 @@ class ComplexMatrix
 	public:
 		ComplexMatrix(const ComplexMatrix& A);
 		ComplexMatrix(int numRows, int numCols);
+        // Custom destructor
 		~ComplexMatrix();
 		int GetNumberOfRows() const;
 		int GetNumberOfCols() const;

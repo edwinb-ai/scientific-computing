@@ -205,6 +205,7 @@ ComplexMatrix ComplexMatrix::operator+(const ComplexMatrix &A) const
     return mat;
 }
 
+// Binary -
 ComplexMatrix ComplexMatrix::operator-(const ComplexMatrix &A) const
 {
     assert(mNumRows == A.mNumRows);
@@ -213,6 +214,22 @@ ComplexMatrix ComplexMatrix::operator-(const ComplexMatrix &A) const
     for (int i = 0; i < mNumRows; ++i) {
         for (int j = 0; j < mNumCols; ++j) {
             mat(i, j) = mMemory[i][j] - A.mMemory[i][j];
+        }
+    }
+
+    return mat;
+}
+
+// Scalar multiplication
+ComplexMatrix ComplexMatrix::operator*(const ComplexNumber &z) const
+{
+    ComplexMatrix mat(mNumRows, mNumCols);
+
+    for (int i = 0; i < mNumRows; ++i)
+    {
+        for (int j = 0; j < mNumCols; ++j)
+        {
+            mat(i, j) = z * mMemory[i][j];
         }
     }
 

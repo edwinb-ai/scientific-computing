@@ -39,7 +39,7 @@ int main()
 
     // Assign values to complex matrix
     ComplexMatrix A(3, 3);
-    std::cout << "Matrix A: " << A << "\n";
+    std::cout << "Matrix A (empty): " << A << "\n";
     int iRows = A.GetNumberOfRows(), iCols = A.GetNumberOfCols();
     ComplexNumber z6(6.0,7.0), z7(8.0, 10.0), z8(1.0,2.0), z9(9.0,6.0);
     ComplexNumber aNumbers[3][3] = {{z1,z2,z3},{z4,z5,z6},{z7,z8,z9}};
@@ -52,8 +52,12 @@ int main()
         }
     }
     std::cout << "Matrix A: " << A << "\n";
-//    std::cout << "Matrix multiplication: " << A*A*A*A << "\n";
-//    std::cout << "Matrix power: " << CalculatePower(A,4) << "\n";
+    std::cout << "Matrix multiplication: " << A*A*A*A << "\n";
+    std::cout << "Matrix power: " << CalculatePower(A,4) << "\n";
+
+    // Test scalar multiplication
+    std::cout << "Multiply A times z5: " << "\n";
+    std::cout << A * z5 << "\n";
 
     // Use vector class
     ComplexVector v(3);
