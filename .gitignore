@@ -7,3 +7,14 @@ infile*
 Makefile
 .idea
 CMakeLists.txt
+
+# Visual studio project files
+*.exe
+*.sdf
+*.sln
+*.VC*
+*.vc*
+
+# Exclude OS specific folders
+Chapter-7/Debug
+Chapter-7/Release
