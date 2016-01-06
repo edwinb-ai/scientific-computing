@@ -1,3 +1,6 @@
+# Files created by text editors
+*~
+
 # Untracked files
 *.o
 crout-test.cc
@@ -16,5 +19,7 @@ CMakeLists.txt
 *.vc*
 
 # Exclude OS specific folders
-Chapter-7/Debug
-Chapter-7/Release
+Chapter-7/Debug/
+Chapter-7/Release/
+Chapter-7/x64/
+Chapter-7/.vs/
