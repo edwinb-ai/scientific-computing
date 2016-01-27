@@ -22,7 +22,7 @@ int main()
 	// PhD students
 	PhD student2;
 	student2.studentName = "Edwin";
-	std::cout << "PhD student don't owe anything! " << student2.TotalOwed()
+	std::cout << "PhD student don't owe anything! Total: " << student2.TotalOwed()
 		<< std::endl;
 
 	return 0;
