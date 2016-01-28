@@ -42,7 +42,7 @@ void ForwardEulerSolver::SolveEquation()
         y_prev = y_next;
 
         // Print values for test
-        std::cout << y_prev << std::endl;
+        //std::cout << y_prev << std::endl;
 
         // Write output to file
         write_output << array1[j] << " " << y_prev << "\n";
