@@ -31,16 +31,19 @@ public:
             return mData[index];
         }
         
-        else if (std::abs(mData[index] - 0.0) >= abs_error && 
-        (mData[index] - 0.0) <= 0.0)
+        // Values less than zero
+        else if (mData[index] <= -abs_error && mData[index] <= 0.0)
         {
             return mData[index] = 0;
         }
+        
+        // Values more than one
         else if (mData[index] >= 1.0 && 
-        std::abs(mData[index] - 1.0) <= abs_error)
+        std::abs(mData[index] - 1.0) >= abs_error)
         {
             return mData[index] = 1;
         }
+        
         else
         {
             assert(0);
