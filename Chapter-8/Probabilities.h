@@ -7,7 +7,7 @@
 
 #include <cassert>
 #include <iostream>
-#include <cmath>
+#include <cmath>    // for std::abs
 
 template<unsigned int DIM> class Probabilities
 {
@@ -20,40 +20,40 @@ public:
     {
         assert(index < DIM);
         assert(index > -1);
-        
+
         //double zero_abs_error = abs(mData[index] - 0.0);
         //double over_one_error = abs(mData[index] - 1.0);
-        
+
         //std::cout << "abs_error " << abs_error << std::endl;
-        
+
         if (mData[index] >= 0.0 && mData[index] <= 1.0)
         {
             return mData[index];
         }
-        
+
         // Values less than zero
-        else if (mData[index] <= -abs_error && mData[index] <= 0.0)
+        else if (std::abs(mData[index]) <= abs_error && mData[index] <= 0.0)
         {
             return mData[index] = 0;
         }
-        
+
         // Values more than one
-        else if (mData[index] >= 1.0 && 
-        std::abs(mData[index] - 1.0) >= abs_error)
+        else if (mData[index] >= 1.0 && std::abs(mData[index] - 1.0) <= abs_error)
         {
+            std::cout << "You used this condition." << std::endl;
             return mData[index] = 1;
         }
-        
+
         else
         {
             assert(0);
         }
-        
+
         return mData[index];
 
     }
-    
-    
+
+
 
 };
 
