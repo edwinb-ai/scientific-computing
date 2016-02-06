@@ -13,18 +13,13 @@ template<unsigned int DIM> class Probabilities
 {
 private:
     double abs_error = 1e-6;
-    double mData[DIM];
+    double mData[DIM] {0};
 
 public:
     double& operator[](int index)
     {
         assert(index < DIM);
         assert(index > -1);
-
-        //double zero_abs_error = abs(mData[index] - 0.0);
-        //double over_one_error = abs(mData[index] - 1.0);
-
-        //std::cout << "abs_error " << abs_error << std::endl;
 
         if (mData[index] >= 0.0 && mData[index] <= 1.0)
         {
@@ -40,7 +35,6 @@ public:
         // Values more than one
         else if (mData[index] >= 1.0 && std::abs(mData[index] - 1.0) <= abs_error)
         {
-            std::cout << "You used this condition." << std::endl;
             return mData[index] = 1;
         }
 
