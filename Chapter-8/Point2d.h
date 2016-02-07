@@ -9,8 +9,8 @@
 class Point2d
 {
 public:
-    int x, y;
-    Point2d(int a, int b);
+    double x, y;
+    Point2d(double a, double b);
     bool operator<(const Point2d& other) const;
 
 };

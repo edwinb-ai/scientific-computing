@@ -12,7 +12,7 @@ int main()
     Point2d origin(0, 0);
     points.insert(origin);
     points.insert(Point2d(-2, 1));
-    points.insert(Point2d(-2, 5));
+    points.insert(Point2d(-2+1e-3, 5));
     points.insert(Point2d(0, 0));
 
     std::cout << "Number of points in set = " << points.size() << "\n";
